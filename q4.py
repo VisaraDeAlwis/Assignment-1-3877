@@ -6,9 +6,6 @@ import os
 img_bgr = cv2.imread('0030_01.jpg')
 img = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
 
-output_dir = "block_average_outputs"
-os.makedirs(output_dir, exist_ok=True)
-
 def block_average(img, block_size):
     h, w = img.shape[:2]
     h_crop = h - (h % block_size)
@@ -31,12 +28,6 @@ titles = ['Original', '3x3 Block Average', '5x5 Block Average', '7x7 Block Avera
 for idx, bsize in enumerate(block_sizes):
     avg_img = block_average(img, bsize)
 
-    
-    filename = f"block_average_{bsize}x{bsize}.jpg"
-    save_path = os.path.join(output_dir, filename)
-    cv2.imwrite(save_path, cv2.cvtColor(avg_img, cv2.COLOR_RGB2BGR))
-
-    
     plt.figure(figsize=(4, 4))
     plt.imshow(avg_img)
     plt.title(titles[idx])
