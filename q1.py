@@ -14,7 +14,7 @@ for idx, level in enumerate(Quantization_Level_list):
 
     plt.subplot(2, 4, idx + 1)
     plt.imshow(quantized, cmap='gray') 
-    plt.title(f'{level} Levels',fontsize=20)
+    plt.title(f'{level} Levels',fontsize=14)
     plt.axis('off')
 
 plt.show()
